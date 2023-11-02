@@ -69,8 +69,9 @@ try:
            exec(p)
         else :
            print(p)
-except:
-    with open(config['pages']['Home']['file']) as page_file: p = page_file.read()
-    print(p)
+except: 
+   if not os.environ['var_page'] == 'Message Board' :
+      with open(config['pages']['Home']['file']) as page_file: p = page_file.read()
+      print(p)
 
 print(footer)

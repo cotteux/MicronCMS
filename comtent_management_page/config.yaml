@@ -12,5 +12,10 @@ pages:
     # Name that appears in menu
     Home:
         file: /path/to//home.mu
+        type: mu
     About:
         file: /path/to/about.mu
+        type: mu
+    Status:
+        file: /path/to/status.mu
+        type: python

@@ -8,7 +8,7 @@ from datetime import datetime
 
 ###################################################
 #        Path to config.yaml below:
-config_path = '/path/to/config.yaml'
+config_path = '/home/cotteux/.nomadnetwork/storage/pages/config.yaml'
 ###################################################
 
 
@@ -51,19 +51,26 @@ print(header)
 print(menu)
 
 try:
-    if not os.environ['var_page'] or os.environ['var_page'] == 'Home':
+   if not os.environ['var_page'] or os.environ['var_page'] == 'Home':
 
         with open(config['pages']['Home']['file']) as page_file: p = page_file.read()
-        print(p)
-    else:
+        if   str(config['pages'][os.environ['var_page']]['type']) =='python' :
+
+           with open(config['pages'][os.environ['var_page']]['file']) as page_file: p = page_file.read()
+           exec(p)
+        else :
+           print(p)
+
+   else:
         with open(config['pages'][os.environ['var_page']]['file']) as page_file: p = page_file.read()
-        print(p)
+        if   str(config['pages'][os.environ['var_page']]['type']) =='python' :
+
+           with open(config['pages'][os.environ['var_page']]['file']) as page_file: p = page_file.read()
+           exec(p)
+        else :
+           print(p)
 except:
     with open(config['pages']['Home']['file']) as page_file: p = page_file.read()
     print(p)
-    
+
 print(footer)
-
-
-
-

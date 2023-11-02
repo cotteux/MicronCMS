@@ -1,5 +1,5 @@
 # MicronCMS
-Base on the Collection of various pages from NomadNet_pages
+Base on the Collection of various pages from NomadNet_pages.
 This script emulate a frame website with header, menu and footer.
 Page files can be written in micron and python.
 Come with status.mu example of a python dynamic page.

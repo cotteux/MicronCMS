@@ -8,7 +8,7 @@ from datetime import datetime
 
 ###################################################
 #        Path to config.yaml below:
-config_path = '/home/cotteux/.nomadnetwork/storage/pages/config.yaml'
+config_path = '/home/user/.nomadnetwork/storage/pages/config.yaml'
 ###################################################
 
 

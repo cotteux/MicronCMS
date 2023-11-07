@@ -3,7 +3,7 @@ import time
 import os
 import RNS.vendor.umsgpack as msgpack
 
-message_board_peer = 'cadcd74205a2873d8705c76d6b58b6f8'
+message_board_peer = ''
 userdir = os.path.expanduser("~")
 
 if os.path.isdir("/etc/nomadmb") and os.path.isfile("/etc/nomadmb/config"):

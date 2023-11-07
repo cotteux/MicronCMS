@@ -1,21 +1,27 @@
 site:
     # Site name
-    title: Default Node Site
-    title_sub_line: This site has not been configured.
+    title: My Node Site
+    title_sub_line: something of meaning.
     # Background color for title bar
-    title_bar_rgb: 07f
+    title_bar_rgb: 44f
     # Background color for footer bar
-    footer_bar_rgb: 07f
+    footer_bar_rgb: 44f
     footer: NomadNetwork Site
 
 pages:
     # Name that appears in menu
     Home:
-        file: /path/to//home.mu
+        file: /<home>/.nomadnetwork/storage/pages/home.mu
         type: mu
-    About:
-        file: /path/to/about.mu
-        type: mu
+    Message Board:
+        file: /<home>/.nomadnetwork/storage/pages/message_board.mu
+        type: python
     Status:
-        file: /path/to/status.mu
+        file: /<home>/.nomadnetwork/storage/pages/status.mu
+        type: python
+    About:
+        file: /<home>/.nomadnetwork/storage/pages/about.mu
+        type: mu
+    Games:
+        file: /<home>/.nomadnetwork/storage/pages/gamesmenu.mu
         type: python

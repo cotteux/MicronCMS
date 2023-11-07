@@ -16,7 +16,6 @@
 ##############################################################################################################
 # Configuration
 
-
 # Debug mode (display of debug information).
 DEBUG = False #True/False
 
@@ -31,9 +30,9 @@ DATE_TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # Screen template - Main
 TEMPLATE_MAIN = """
->`cReticulum Status
+>Reticulum Status
 
-Latest Update: {date_time}`c
+Latest Update: {date_time}
 {entrys}
 
 `c`[Home`:/page/index.mu]`
@@ -46,6 +45,21 @@ Latest Update: {date_time}`c
 import os
 import time
 import subprocess
+import platform
+from datetime import datetime
+
+def get_size(bytes, suffix="B"):
+    """
+    Scale bytes to its proper format
+    e.g:
+        1253656 => '1.20MB'
+        1253656678 => '1.17GB'
+    """
+    factor = 1024
+    for unit in ["", "K", "M", "G", "T", "P"]:
+        if bytes < factor:
+            return f"{bytes:.2f}{unit}{suffix}"
+        bytes /= factor
 
 
 ##############################################################################################################
@@ -69,6 +83,13 @@ if CACHE_TIME != None:
 if DEBUG:
     print(os.environ)
 
+print(">System Information")
+uname = platform.uname()
+print(f"System: {uname.system}")
+print(f"Node Name: {uname.node}")
+print(f"Release: {uname.release}")
+print(f"Version: {uname.version}")
+print(f"Machine: {uname.machine}")
 
 tpl = TEMPLATE_MAIN
 tpl = tpl.replace("{self}", FILE)

@@ -1,0 +1,41 @@
+#!/bin/python3
+import time
+import os
+import RNS.vendor.umsgpack as msgpack
+
+message_board_peer = 'cadcd74205a2873d8705c76d6b58b6f8'
+userdir = os.path.expanduser("~")
+
+if os.path.isdir("/etc/nomadmb") and os.path.isfile("/etc/nomadmb/config"):
+    configdir = "/etc/nomadmb"
+elif os.path.isdir(userdir+"/.config/nomadmb") and os.path.isfile(userdir+"/.config/nomadmb/config"):
+    configdir = userdir+"/.config/nomadmb"
+else:
+    configdir = userdir+"/.nomadmb"
+
+storagepath  = configdir+"/storage"
+if not os.path.isdir(storagepath):
+    os.makedirs(storagepath)
+
+boardpath = configdir+"/storage/board"
+
+print('`!`F222`Bddd`cSherbyNode Message Board')
+
+print('-')
+print('`a`b`f')
+print("")
+print("To add a message to the board just converse with the NomadNet Message Board at `[lxmf@{}]".format(message_board_peer))
+time_string = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+print("Last Updated: {}".format(time_string))
+print("")
+print('>Messages')
+print("`B15FDate       Time     User   `b`B41FMessage ")
+print("`b")
+print("")
+f = open(boardpath, "rb")
+board_contents = msgpack.unpack(f)
+board_contents.reverse()
+for content in board_contents:
+    print("`a{}".format(content.rstrip()))
+    print("")
+f.close()

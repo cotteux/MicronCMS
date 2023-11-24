@@ -24,4 +24,6 @@ and update messageboard.mu message_board_peer = '' with the one give it to you b
 
 Coming soon more modules and options.
 
+Rss Reader module : https://github.com/cotteux/rssNews
+
 Demo on Nomadnet : 3e05f77a9f0dbfc124f230862153c9f9/page/index.mu
